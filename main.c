@@ -57,12 +57,13 @@ char IdentificacionDelInstrumento[] ="Nombre de mi instrumento";
 {
 	short int PuertoAbierto=-1;
 	if (InitCVIRTE (0, argv, 0) == 0) return -1;
-	PuertoAbierto=pcom_abre_puerto_serie();
+	//PuertoAbierto=pcom_abre_puerto_serie();
 	pcom_muestra_el_panel_de_mensajes(PP_TOP,PP_LEFT);//Muestra el tráfico por el puerto
 	pcom_modo_pcom(0);//Para poner los paneles en modo master
 	DisplayPanel (MensajesHandle);
 	// Si no se abre un puerto automáticamente, muestra el panel de configuración
-	if(PuertoAbierto==-1)pcom_muestra_el_panel_de_configuracion(PANEL_MODO_TOP,100,300);
+	pcom_muestra_el_panel_de_configuracion(PANEL_MODO_TOP,100,300);
+	//if(PuertoAbierto==-1)pcom_muestra_el_panel_de_configuracion(PANEL_MODO_TOP,100,300);
 	RunUserInterface (); 
 	return 0;
 }
